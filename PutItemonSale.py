@@ -1,7 +1,7 @@
 
 gulahmedproducts = [
     {
-     'SkuCode': 111,
+     'SkuCode': 110,
      'Name': "3PC Yarn Dyed Unstitched digital Printed Suit CLP-32046",
      'isAvailable': "true",
      'category': "unstiched",
@@ -41,7 +41,7 @@ gulahmedproducts = [
     },
 
     {
-        'SkuCode': 111,
+        'SkuCode': 112,
         'Name': "3PC Yarn Dyed Unstitched digital Printed Suit CLP-32046",
         'isAvailable': 'true',
         'category': "two-pice",
@@ -52,9 +52,10 @@ gulahmedproducts = [
     },
 
     {
-        'SkuCode': 111,
+        'SkuCode': 113,
         'Name': "3PC Yarn Dyed Unstitched digital Printed Suit CLP-32046",
         'isAvailable': "true",
+        'category': "unstiched",
         'price': 4043,
         'color': ["black", "red", "white"],
         'totalStock': 2,
@@ -62,4 +63,8 @@ gulahmedproducts = [
      }
 ]
 
-print(gulahmedproducts)
+for i in gulahmedproducts:
+    if i['category'] == 'unstiched':
+        i['isonSale'] = "true"
+        #print(i['isonSale'])
+        print(str(i['SkuCode']) + " : it's on sale now")

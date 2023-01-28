@@ -1,21 +1,36 @@
 arr = ["LHR","MTN","ISB","FSD"]
-index = 1
-a = "SGR"
+position = 1
+a = ["SGR"]
 
-for i in range(len(arr)):
-    if i == index:
-        arr.insert(i,a)
-        break
-print(arr)
+str = ""
 
-# a1 = ["S","G","R"]
-# b = ""
-#
-# for i in a1:
-#     b += i
+# solution = 1
+
+# # solution with slicing logic
+# arr = arr[:position] + a + arr[position:]
+# print(arr)
+
+# solution = 2
+# # solution with .insert logic
+# for i in a:
+#     str += i
 #
 # for i in range(len(arr)):
-#     if i == index:
-#         arr.insert(i,b)
+#     if i == position:
+#         arr.insert(i,str)
 #         break
 # print(arr)
+
+# solution = 3
+# using append method
+
+new_arr = []
+
+for i in range(len(arr)):
+    if i == position:
+        new_arr.append(a[0])
+    new_arr.append(arr[i])
+
+
+arr = new_arr
+print(arr)
