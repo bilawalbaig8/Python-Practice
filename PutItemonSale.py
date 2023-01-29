@@ -25,6 +25,14 @@ gulahmedproducts = [
              'ratings': 2.0,
              'comments': "faulty product",
              'isApproved': "false"
+         },
+
+         {
+             'udId': 3,
+             'uName': "abc",
+             'ratings': 2.0,
+             'comments': "great product",
+             'isApproved': "false"
          }
      ]
      },
@@ -68,3 +76,12 @@ for i in gulahmedproducts:
         i['isonSale'] = "true"
         #print(i['isonSale'])
         print(str(i['SkuCode']) + " : it's on sale now")
+
+
+for i in gulahmedproducts:
+    if 'reviews' in i:
+        for x in i['reviews']:
+            if x['comments'] == 'nice product' or x['comments'] == 'great product':
+                x['isApproved'] = 'True'
+                print(str(i['SkuCode']) + " : " + str(x['udId']) + " : comment is approved")
+            #print(x)
