@@ -24,6 +24,8 @@ Harsh
 
 
 ''' Not an optimized code'''
+
+'''
 # Some variables
 grade_dict = {}
 orignal_score_lst = []
@@ -59,3 +61,26 @@ sorted_name = sorted(low_score_student)
 for i in sorted_name:
     print(str(i))
 
+'''
+# Second Approach
+
+n = int(input())
+student_data = {}
+orignal_score_lst = []
+
+for i in range(n):
+    name = input()
+    score = float(input())
+    student_data[name] = score
+    orignal_score_lst.append(score)
+
+orignal_score_lst = sorted(set(orignal_score_lst))
+second_minimum_score = orignal_score_lst[1]
+
+low_score =[]
+for name , score in student_data.items():
+    if score == second_minimum_score:
+        low_score.append(name)
+
+for name in sorted(low_score):
+    print(name)
