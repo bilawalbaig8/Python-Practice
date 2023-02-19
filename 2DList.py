@@ -23,7 +23,7 @@ def find_average(lst):
 
     average = sum / count
 
-    return average
+    # return average
     print("\n Average : " , average)
 
 def find_maximum(lst):
@@ -35,7 +35,7 @@ def find_maximum(lst):
             # print(column)
             if maximum < column:
                 maximum = column
-    return maximum
+    # return maximum
     print("\n Maximum : " , maximum)
 
 def find_minimum(lst):
@@ -48,37 +48,119 @@ def find_minimum(lst):
             if minimum > column:
                 minimum = column
 
-    return minimum
+    # return minimum
     print("\n Minimum : " , minimum)
 
-oneDlist = []
-index = 0
-sorted_list = []
+def sort_accending_2dlst_as_1d(lst):
+    oneDlist = []
+    index = 0
+    sorted_list = []
 
-for row in m_list:
-    # print(row)
-    for column in row:
-        oneDlist.append(column)
+    for row in lst:
+        # print(row)
+        for column in row:
+            oneDlist.append(column)
 
-# print(oneDlist)
+    # print(oneDlist)
 
-for i in range(len(oneDlist)):
-    min = [0]
-    for j in range(len(oneDlist)):
-        if min <= oneDlist[j]:
-            min = oneDlist[j]
-            index = j
-        sorted_list.append(j)
-        oneDlist[j] = min
-
-print(sorted_list)
-
+    for i in range(len(oneDlist)):
+        min = oneDlist[0]
+        for j in range(len(oneDlist)):
+            if min > oneDlist[j]:
+                min = oneDlist[j]
+                index = j
+        sorted_list.append(min)
+        oneDlist[index] = max(oneDlist)
 
 
+    print("\n Sorted List accending order: ", sorted_list)
 
 
-print(max,index)
+def sort_decending_2dlst_as_1d(lst):
+    oneDlist = []
+    index = 0
+    sorted_list = []
 
-# find_average(m_list)
-# find_maximum(m_list)
-# find_minimum(m_list)
+    for row in lst:
+        # print(row)
+        for column in row:
+            oneDlist.append(column)
+
+    # print(oneDlist)
+
+    for i in range(len(oneDlist)):
+        max = oneDlist[0]
+        for j in range(len(oneDlist)):
+            if max < oneDlist[j]:
+                max = oneDlist[j]
+                index = j
+        sorted_list.append(max)
+        oneDlist[index] = min(oneDlist)
+
+
+    print("\n Sorted List decending order: ", sorted_list)
+
+def sort_decending_2dlst(lst):
+    oneDlist = []
+    index = 0
+    sorted_list = []
+    sorted2d_list = []
+
+    for row in lst:
+        # print(row)
+        for column in row:
+            oneDlist.append(column)
+
+    # print(oneDlist)
+
+    for i in range(len(oneDlist)):
+        max = oneDlist[0]
+        for j in range(len(oneDlist)):
+            if max < oneDlist[j]:
+                max = oneDlist[j]
+                index = j
+        sorted_list.append(max)
+        oneDlist[index] = min(oneDlist)
+
+    for i in range(0, len(sorted_list), 3):
+        sorted2d_list.append(sorted_list[i:i + 3])
+
+    print("\n Sorted list deccending order: ", sorted2d_list)
+
+
+def sort_accending_2dlst(lst):
+    oneDlist = []
+    index = 0
+    sorted_list = []
+    sorted2d_list = []
+
+    for row in lst:
+        # print(row)
+        for column in row:
+            oneDlist.append(column)
+
+    # print(oneDlist)
+
+    for i in range(len(oneDlist)):
+        min = oneDlist[0]
+        for j in range(len(oneDlist)):
+            if min > oneDlist[j]:
+                min = oneDlist[j]
+                index = j
+        sorted_list.append(min)
+        oneDlist[index] = max(oneDlist)
+
+    for i in range(0, len(sorted_list), 3):
+        sorted2d_list.append(sorted_list[i:i + 3])
+
+    print("\n Sorted list accending order: ", sorted2d_list)
+
+
+find_average(m_list)
+find_maximum(m_list)
+find_minimum(m_list)
+sort_accending_2dlst_as_1d(m_list)
+sort_accending_2dlst(m_list)
+sort_decending_2dlst_as_1d(m_list)
+sort_decending_2dlst(m_list)
+
