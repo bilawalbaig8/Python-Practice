@@ -15,5 +15,16 @@ m_list = [
     [32,33,34]
 
 ]
+maximum = 0
+maxvalue = []
+
+for row in m_list:
+    # print(row)
+    for column in range(len(row)):
+        maximum = max(row)
+        print(maximum)
+        if maximum == max(row):
+            maxvalue.append(max(row))
 
 
+print(maxvalue)
