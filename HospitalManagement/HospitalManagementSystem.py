@@ -42,6 +42,8 @@ if __name__=="__main__":
         for i in range(len(records)):
             print(records[i])
 
+    # If block for searching
+
     elif choice==3:
         search = input("Enter 'Name or Contact Number' for search ")
         found = False
