@@ -1,6 +1,6 @@
 #Print all the prime numbers
-startRange = 2
-endRange = 101
+startRange = 200
+endRange = 1000
 factor = []
 primeNumbers = []
 
