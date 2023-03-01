@@ -1,0 +1,4 @@
+PatientId	Name	Contact	Address	BOD	Gender	AppDates	Medicines	Remarks
+1	Yasir	03234455667	XYZ Lahore	11-1-2001	M	
+2	Usman	03234455683	XYZ Lahore	03-03-1995	M	
+3	Sonila	03234433221	XYZ Lahore	17-11-2001	F	
