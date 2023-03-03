@@ -29,14 +29,15 @@ def removebuzzwords(data):
 
 file = openFile('Jinnah.txt')
 
-
-# buzzword remove
+'''
+Buzzword remove
+'''
 
 without_buzzwords = removebuzzwords(file)
-# print(without_buzzwords)
 
-# Founding the list of words
-
+'''
+Founding the list of words
+'''
 
 lowercased_document = file.lower().split()
 
@@ -51,10 +52,11 @@ for word in words_to_find:
     else:
         word_counts[word] = 1
 
-print(word_counts)
+print("The count of given words in a documnets: \n" , word_counts)
 
-
-# 5 most recurring words with "Jinnah"
+'''
+5 most recurring words with "Jinnah"
+'''
 
 words_to_find = "Jinnah"
 
@@ -70,9 +72,10 @@ for word in without_buzzwords:
     else:
         previous_word = word
 
-# print(word_collect)
 
-# counting the recurring words
+''' 
+Counting the recurring words
+'''
 
 for count in word_collect:
     if count in recurring_word_count:
@@ -80,7 +83,16 @@ for count in word_collect:
     else:
         recurring_word_count[count] = 1
 
-print(recurring_word_count)
+# print(recurring_word_count)
 
 
-# counting Maximum recurring words
+'''
+Counting Maximum recurring words
+'''
+most_recurring = []
+
+for key, values in recurring_word_count.items():
+    if values > 1:
+        most_recurring.append(key)
+
+print("\n There are only", len(most_recurring), "recurring words with Jinnah: \n" , most_recurring)
