@@ -18,3 +18,7 @@ def readAllRecords(filename):
     rows=file.readlines()
     return rows
 
+def writenewfile(filename,data):
+    file = open(filename, 'w')
+    w = file.write(data)
+    return w

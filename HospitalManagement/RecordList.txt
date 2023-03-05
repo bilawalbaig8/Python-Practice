@@ -1,0 +1,1 @@
+['PatientId\tName\tContact\tAddress\tBOD\tGender\tAppDates\tMedicines\tRemarks\n', '1\tYasir\t03234455667\tXYZ Lahore\t11-1-2001\tM\t\n', '2\tUsman\t03234455683\tXYZ Lahore\t03-03-1995\tM\t\n', '3\tSonila\t03234433221\tXYZ Lahore\t17-11-2001\tF\t\n', '4\tsana\t03242589314\tXYZ Lahore\t17-11-2022\tF\t']

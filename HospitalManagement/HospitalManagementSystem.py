@@ -26,7 +26,7 @@ if __name__=="__main__":
     welcome()
     file = "data.txt"
     #appendHeader(file)
-    choice = int(input(" Enter 1: To Register New Patient\n Enter 2: To View all the Patients\n Enter 3: For Search "))
+    choice = int(input(" Enter 1: To Register New Patient\n Enter 2: To View all the Patients\n Enter 3: For Search\n Enter 4 to quite this menu : "))
 
     if choice == 1:
         info = register()
@@ -57,5 +57,11 @@ if __name__=="__main__":
         if not found:
                 print("Result not found")
 
+    elif choice == 4:
+        print("Quit")
 
+# Convert Data into List
+file = "data.txt"
+record = readAllRecords(file)
+writenewfile("RecordList.txt", str(record))
 
