@@ -28,10 +28,32 @@ class students:
         print("Student Class : ", self.studyclass)
         print("Student Section : ", self.section)
 
+    def recordMarks(self, english, urdu, math):
+        self.__english = english
+        self.__urdu = urdu
+        self.__math = math
+
+    def showTotalMarks(self):
+        print("\nMarks of ", self.name)
+        print("English : ", self.__english)
+        print("Urdu : ", self.__urdu)
+        print("Math : ", self.__math)
+        print("Total Marks are:" , self.__english + self.__urdu + self.__math)
+        print("==================================================")
+
+
+
+"""  Creating the objects   """
+
+
 students.showSchoolName()
 
 std1 = students("1","Bilawal Baig" , "8" , "B")
+std1.recordMarks(50,60,70)
 std1.showStudentData()
+std1.showTotalMarks()
 
 std2 = students("2","Asim" , "8" , "A")
+std2.recordMarks(70,50,80)
 std2.showStudentData()
+std2.showTotalMarks()
