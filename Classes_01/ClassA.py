@@ -1,6 +1,6 @@
 class A:
     def __init__(self, a, b):
-        self.__a = a  # Made this variable private but didn't happen anything with the code functionality
+        self.__a = a
         self.b = b
 
     def show(self):
@@ -8,3 +8,7 @@ class A:
 
     def sum(self):
         return self.__a + self.b
+
+    def get_a(self):
+        a = self.__a
+        return a
