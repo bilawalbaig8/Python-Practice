@@ -16,7 +16,7 @@ After Search by contact number
 
 """
 
-from File import *
+from Functions import *
 
 
 def register():
@@ -49,6 +49,9 @@ if __name__ == "__main__":
     welcome()
     file = "data.txt"
     # appendHeader(file)
+    choice = None
+
+    while
 
     choice = int(input(
         " Enter 1: To Register New Patient\n "
@@ -71,8 +74,7 @@ if __name__ == "__main__":
         for i in range(len(records)):
             print(records[i])
 
-
-# If block for searching
+    # If block for searching
 
     elif choice == 3 or 4:
         search = input("\nEnter 'Name or Contact Number' for search ")
@@ -92,6 +94,11 @@ if __name__ == "__main__":
 
     elif choice == 5:
         print("Quit")
+
+
+
+
+
 
 # # Convert Data into List
 # file = "data.txt"
