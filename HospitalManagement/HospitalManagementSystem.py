@@ -80,17 +80,55 @@ if __name__ == "__main__":
             search = input("\nEnter 'Name or Contact Number' for search ")
             found = False
             records = readAllRecords(file)
+            searchedRecord = []
+
+            # Record Search Block
             for record_list in records:
                 if search in record_list:
                     header = readHeader(file)
                     print("=====================================================================================")
                     print(header)
                     print(record_list, "\n \n")
+
+                    # Saving list into Variable for later use
+                    values = record_list.split("\t")
+                    searchedRecord.append(values)
+                    print(searchedRecord[0])
+
                     found = True
                     break
 
             if not found:
                 print("\nResult not found")
+
+
+            # Operations after search
+            updateChoice = None
+
+            while updateChoice != 4:
+                updateChoice = int(input(
+                                        " Enter 1: To add entry\n "
+                                        "Enter 2: To update entry\n "
+                                        "Enter 3: To delete the record\n "
+                                        "Enter 4: Return to Main Menu\n "
+                                        ))
+                if updateChoice == 1:
+
+
+                """
+                elif updateChoice == 2:
+
+                elif updateChoice == 3:
+
+                elif updateChoice == 4:
+
+
+                returnToMenu = input("\nDO you want to continue? (Y/N)")
+
+                if returnToMenu != 'Y' and returnToMenu != 'y':
+                    print("\nYou are in MainMenu")
+                    break
+                """
 
         elif choice == 5:
             print("Quit")
@@ -100,11 +138,6 @@ if __name__ == "__main__":
         if subMenu != 'Y' and subMenu != 'y':
             print("\nYou are quit")
             break
-
-
-
-
-
 
 # # Convert Data into List
 # file = "data.txt"
