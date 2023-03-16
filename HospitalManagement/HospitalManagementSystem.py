@@ -107,13 +107,24 @@ if __name__ == "__main__":
 
             while updateChoice != 4:
                 updateChoice = int(input(
-                                        " Enter 1: To add entry\n "
-                                        "Enter 2: To update entry\n "
+                                        " Enter 1: To update record\n "
+                                        "Enter 2: To add entry\n "
                                         "Enter 3: To delete the record\n "
                                         "Enter 4: Return to Main Menu\n "
                                         ))
                 if updateChoice == 1:
 
+                    updateDetails = int(input(
+                        " Enter 1: To Update Name\n "
+                        "Enter 2: To Update Contact No\n "
+                        "Enter 3: To Update Address\n "
+                        "Enter 4: To Update DoB\n "
+                        "Enter 5: To Update Gender\n "
+                        "Enter 6: To Update AppDates\n "
+                        "Enter 7: To Update Medicines\n "
+                        "Enter 8: To Update Remarks\n "
+                        "Enter 7: Back\n "
+                    ))
 
                 """
                 elif updateChoice == 2:
