@@ -101,19 +101,17 @@ if __name__ == "__main__":
             if not found:
                 print("\nResult not found")
 
-
             # Operations after search
             updateChoice = None
 
             while updateChoice != 4:
                 updateChoice = int(input(
-                                        " Enter 1: To update record\n "
-                                        "Enter 2: To add entry\n "
-                                        "Enter 3: To delete the record\n "
-                                        "Enter 4: Return to Main Menu\n "
-                                        ))
+                    " Enter 1: To update record\n "
+                    "Enter 2: To add entry\n "
+                    "Enter 3: To delete the record\n "
+                    "Enter 4: Return to Main Menu\n "
+                ))
                 if updateChoice == 1:
-
                     updateDetails = int(input(
                         " Enter 1: To Update Name\n "
                         "Enter 2: To Update Contact No\n "
