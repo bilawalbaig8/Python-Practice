@@ -62,8 +62,24 @@ def require_water_glass(working_hours):
     return water_in_session
 
 
-def make_txt_file():
-    return
+def getDate():
+    now = datetime.datetime.now()
+    date_time = now.strftime("%Y-%m-%d %I:%M:%S %p")
+
+    return date_time
+
+
+def make_log_file(file_name, data):
+    if os.path.exists(file_name):
+        with open(file_name, "a") as f:
+                f.write(str(getDate()) + "\t" + str(data) + "\n")
+                f.close()
+    else:
+        with open(file_name, "w") as f:
+            f.write(str(getDate()) + "\t" + str(data) + "\n")
+            f.close()
+
+
 
 
 def water_notifier():
@@ -78,28 +94,46 @@ def exercise_notifier():
     return
 
 
+print("\nThe Health Management system is being initiated\n"
+      "To Keep Healthy: \n"
+      "\tDrink a glass of water after every 15 minutes \n "
+      "\tExercise your eye after every 30 minutes \n"
+      "\tDo some Physical Exersice after every 45 minutes \n")
+
 Log_in = "9AM"
 Log_out = "6PM"
 
-working_hours = calculate_working_hours("Log_in", "Log_out")
+working_hours = calculate_working_hours(Log_in, Log_out)
 water_in_session = require_water_glass(working_hours)
+
+current_date = datetime.datetime.now().date()
 
 login_time_obj = datetime.datetime.strptime(Log_in, '%I%p').time()
 logout_time_obj = datetime.datetime.strptime(Log_out, '%I%p').time()
 
 while True:
-
+    time.sleep(5)
     current_time_obj = datetime.datetime.now().time()
 
     if login_time_obj <= current_time_obj <= logout_time_obj:
-        print(current_time_obj.strftime("%I:%M:%S %p"), " It's to drink {0}ml glass of Water".format(water_in_session))
+        print(current_time_obj.strftime("%I:%M:%S %p"),
+              " It's time to drink {0} ML glass of Water".format(water_in_session))
+
         snooze = True
 
         while snooze:
+
             playsound("Play")
             disable_Alarm = input("Type 'Done' to snooze\n")
+
             if disable_Alarm.lower() == "done":
+
                 snooze = False
                 playsound("Stop")
+
+                log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
+                log_txt = "Water is Drank"
+
+                make_log_file(log_file, log_txt)
+
                 break
-    time.sleep(5)
