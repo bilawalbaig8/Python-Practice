@@ -27,6 +27,7 @@ import time
 import datetime
 import pygame
 import os
+import keyboard
 
 
 def calculate_working_hours(Log_in, Log_out):
@@ -72,51 +73,19 @@ def getDate():
 def make_log_file(file_name, data):
     if os.path.exists(file_name):
         with open(file_name, "a") as f:
-                f.write(str(getDate()) + "\t" + str(data) + "\n")
-                f.close()
+            f.write(str(getDate()) + "\t" + str(data) + "\n")
+            f.close()
     else:
         with open(file_name, "w") as f:
             f.write(str(getDate()) + "\t" + str(data) + "\n")
             f.close()
 
 
-
-
 def water_notifier():
-    return
-
-
-def eye_notifier():
-    return
-
-
-def exercise_notifier():
-    return
-
-
-print("\nThe Health Management system is being initiated\n"
-      "To Keep Healthy: \n"
-      "\tDrink a glass of water after every 15 minutes \n "
-      "\tExercise your eye after every 30 minutes \n"
-      "\tDo some Physical Exersice after every 45 minutes \n")
-
-Log_in = "9AM"
-Log_out = "6PM"
-
-working_hours = calculate_working_hours(Log_in, Log_out)
-water_in_session = require_water_glass(working_hours)
-
-current_date = datetime.datetime.now().date()
-
-login_time_obj = datetime.datetime.strptime(Log_in, '%I%p').time()
-logout_time_obj = datetime.datetime.strptime(Log_out, '%I%p').time()
-
-while True:
-    time.sleep(5)
     current_time_obj = datetime.datetime.now().time()
 
     if login_time_obj <= current_time_obj <= logout_time_obj:
-        print(current_time_obj.strftime("%I:%M:%S %p"),
+        print("\n", current_time_obj.strftime("%I:%M:%S %p"),
               " It's time to drink {0} ML glass of Water".format(water_in_session))
 
         snooze = True
@@ -127,13 +96,109 @@ while True:
             disable_Alarm = input("Type 'Done' to snooze\n")
 
             if disable_Alarm.lower() == "done":
-
                 snooze = False
                 playsound("Stop")
 
                 log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
-                log_txt = "Water is Drank"
+                log_txt = "\t Water is Drank"
+
+                print(log_txt)
+
+                make_log_file(log_file, log_txt)
+
+            else:
+                print("invalid Command")
+
+
+def eye_notifier():
+    current_time_obj = datetime.datetime.now().time()
+
+    if login_time_obj <= current_time_obj <= logout_time_obj:
+        print("\n", current_time_obj.strftime("%I:%M:%S %p"),
+              " It's time to do some eye exercise")
+
+        snooze = True
+
+        while snooze:
+
+            playsound("Play")
+            disable_Alarm = input("Type 'Done' to snooze\n")
+
+            if disable_Alarm.lower() == "done":
+                snooze = False
+                playsound("Stop")
+
+                log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
+                log_txt = "\t Eye Exercise is Done"
+
+                print(log_txt)
 
                 make_log_file(log_file, log_txt)
 
                 break
+
+            else:
+                print("invalid Command")
+
+
+
+def exercise_notifier():
+    current_time_obj = datetime.datetime.now().time()
+
+    if login_time_obj <= current_time_obj <= logout_time_obj:
+        print("\n", current_time_obj.strftime("%I:%M:%S %p"),
+              " It's time to do some physical exercise")
+
+        snooze = True
+
+        while snooze:
+
+            playsound("Play")
+            disable_Alarm = input("Type 'Done' to snooze\n")
+
+            if disable_Alarm.lower() == "done":
+                snooze = False
+                playsound("Stop")
+
+                log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
+                log_txt = "\t Physical Exercise are Done"
+
+                print(log_txt)
+
+                make_log_file(log_file, log_txt)
+
+                break
+            else:
+                print("invalid Command")
+
+
+if __name__ == "__main__":
+    print("\nThe Health Management system is being initiated\n"
+          "To Keep Healthy: \n"
+          "\tDrink a glass of water after every 15 minutes \n "
+          "\tExercise your eye after every 30 minutes \n"
+          "\tDo some Physical Exersice after every 45 minutes \n")
+
+    Log_in = "9AM"
+    Log_out = "6PM"
+
+    working_hours = calculate_working_hours(Log_in, Log_out)
+    water_in_session = require_water_glass(working_hours)
+
+    current_date = datetime.datetime.now().date()
+
+    login_time_obj = datetime.datetime.strptime(Log_in, '%I%p')
+    logout_time_obj = datetime.datetime.strptime(Log_out, '%I%p')
+
+    while True:
+        time.sleep(15*60)
+        water_notifier()
+
+        time.sleep(30*60)
+        eye_notifier()
+
+        time.sleep(35*60)
+        exercise_notifier()
+
+        if keyboard.is_pressed('esc'):
+            break
