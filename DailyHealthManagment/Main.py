@@ -84,92 +84,92 @@ def make_log_file(file_name, data):
 def water_notifier():
     current_time_obj = datetime.datetime.now().time()
 
-    if login_time_obj <= current_time_obj <= logout_time_obj:
-        print("\n", current_time_obj.strftime("%I:%M:%S %p"),
+    # if login_time_obj <= current_time_obj <= logout_time_obj:
+    print("\n", current_time_obj.strftime("%I:%M:%S %p"),
               " It's time to drink {0} ML glass of Water".format(water_in_session))
 
-        snooze = True
+    snooze = True
 
-        while snooze:
+    while snooze:
 
-            playsound("Play")
-            disable_Alarm = input("Type 'Done' to snooze\n")
+        playsound("Play")
+        disable_Alarm = input("Type 'Done' to snooze\n")
 
-            if disable_Alarm.lower() == "done":
-                snooze = False
-                playsound("Stop")
+        if disable_Alarm.lower() == "done":
+            snooze = False
+            playsound("Stop")
 
-                log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
-                log_txt = "\t Water is Drank"
+            log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
+            log_txt = "\t Water is Drank"
 
-                print(log_txt)
+            print(log_txt)
 
-                make_log_file(log_file, log_txt)
+            make_log_file(log_file, log_txt)
 
-            else:
-                print("invalid Command")
+        else:
+            print("invalid Command")
 
 
 def eye_notifier():
     current_time_obj = datetime.datetime.now().time()
 
-    if login_time_obj <= current_time_obj <= logout_time_obj:
-        print("\n", current_time_obj.strftime("%I:%M:%S %p"),
+    # if login_time_obj <= current_time_obj <= logout_time_obj:
+    print("\n", current_time_obj.strftime("%I:%M:%S %p"),
               " It's time to do some eye exercise")
 
-        snooze = True
+    snooze = True
 
-        while snooze:
+    while snooze:
 
-            playsound("Play")
-            disable_Alarm = input("Type 'Done' to snooze\n")
+        playsound("Play")
+        disable_Alarm = input("Type 'Done' to snooze\n")
 
-            if disable_Alarm.lower() == "done":
-                snooze = False
-                playsound("Stop")
+        if disable_Alarm.lower() == "done":
+            snooze = False
+            playsound("Stop")
 
-                log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
-                log_txt = "\t Eye Exercise is Done"
+            log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
+            log_txt = "\t Eye Exercise is Done"
 
-                print(log_txt)
+            print(log_txt)
 
-                make_log_file(log_file, log_txt)
+            make_log_file(log_file, log_txt)
 
-                break
+            break
 
-            else:
-                print("invalid Command")
+        else:
+            print("invalid Command")
 
 
 
 def exercise_notifier():
     current_time_obj = datetime.datetime.now().time()
 
-    if login_time_obj <= current_time_obj <= logout_time_obj:
-        print("\n", current_time_obj.strftime("%I:%M:%S %p"),
+    # if login_time_obj <= current_time_obj <= logout_time_obj:
+    print("\n", current_time_obj.strftime("%I:%M:%S %p"),
               " It's time to do some physical exercise")
 
-        snooze = True
+    snooze = True
 
-        while snooze:
+    while snooze:
 
-            playsound("Play")
-            disable_Alarm = input("Type 'Done' to snooze\n")
+        playsound("Play")
+        disable_Alarm = input("Type 'Done' to snooze\n")
 
-            if disable_Alarm.lower() == "done":
-                snooze = False
-                playsound("Stop")
+        if disable_Alarm.lower() == "done":
+            snooze = False
+            playsound("Stop")
 
-                log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
-                log_txt = "\t Physical Exercise are Done"
+            log_file = "Logs" + "/" + str(current_date) + "_Log.txt"
+            log_txt = "\t Physical Exercise are Done"
 
-                print(log_txt)
+            print(log_txt)
 
-                make_log_file(log_file, log_txt)
+            make_log_file(log_file, log_txt)
 
-                break
-            else:
-                print("invalid Command")
+            break
+        else:
+            print("invalid Command")
 
 
 if __name__ == "__main__":
@@ -191,13 +191,16 @@ if __name__ == "__main__":
     logout_time_obj = datetime.datetime.strptime(Log_out, '%I%p')
 
     while True:
-        time.sleep(15*60)
+        # water_timing = 15 * 60
+        time.sleep(900)
         water_notifier()
 
-        time.sleep(30*60)
+        # eye_timing = 30 * 60
+        time.sleep(1800)
         eye_notifier()
 
-        time.sleep(35*60)
+        # exercise_timing = 45 * 60
+        time.sleep(2700)
         exercise_notifier()
 
         if keyboard.is_pressed('esc'):
