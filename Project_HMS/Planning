@@ -1,0 +1,69 @@
+GUI Panels:
+
+Dashboard Panel:
+    Add New Patient Button
+    View Patient Details Button
+    Search Patient Button
+    Financial Summary Button
+    Logout Button
+
+Add New Patient Panel:
+    First Name
+    Last Name
+    Age
+    Gender
+    Contact Number
+    Email
+    Address
+    Blood Group
+    Disease/Condition
+    Date of Admission
+    Remarks
+    Medicines
+
+Edit Patient Details Panel:
+    Patient ID (editable field)
+    First Name
+    Last Name
+    Age
+    Gender
+    Contact Number
+    Email
+    Address
+    Blood Group
+    Disease/Condition
+    Date of Admission
+    Remarks
+    Medicines
+
+View Patient Details Panel:
+    Patient ID (read-only field)
+    First Name (read-only field)
+    Last Name (read-only field)
+    Age (read-only field)
+    Gender (read-only field)
+    Contact Number (read-only field)
+    Email (read-only field)
+    Address (read-only field)
+    Blood Group (read-only field)
+    Disease/Condition (read-only field)
+    Date of Admission (read-only field)
+    Remarks (read-only field)
+    Medicines (read-only field)
+
+Search Patient Panel:
+    Search by Patient Name field
+    Search by Medical Condition field
+    Search by Prescribed Medicine field
+
+Search Result Panel:
+    List of patient visits sorted by date (latest first)
+
+Financial Summary Panel:
+    Date Range field
+    Total Earnings field
+    Total Paid field
+    Total Unpaid field
+    Total Due field
+
+
