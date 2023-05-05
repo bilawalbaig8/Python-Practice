@@ -1,6 +1,11 @@
 import pandas as pd
-import openpyxl
 from datetime import datetime
+import os
+
+script_path = os.path.dirname(os.path.abspath(__file__))
+
+file_path = os.path.join(script_path, "DataBase", "PatientRecord.xlsx")
+
 
 
 class Patient:
@@ -24,7 +29,7 @@ class PatientList:
 
     def add_patient(self, patient):
         # read the last ID from the Excel sheet
-        df = pd.read_excel("H:\PythonAssignments\Project_HMS\DataBase\PatientRecord.xlsx")
+        df = pd.read_excel(file_path)
 
         max_id = df["ID"].max()
 
@@ -35,23 +40,23 @@ class PatientList:
         self.add_to_excel(patient)
 
     def add_to_excel(self, patient):
-        df = pd.read_excel("H:\PythonAssignments\Project_HMS\DataBase\PatientRecord.xlsx")
+        df = pd.read_excel(file_path)
         new_patient_data = {'ID': patient.id, 'Date': patient.date, 'Patient Name': patient.name, 'Age': patient.age,
                             'Gender': patient.gender, 'Contact Number': patient.contactNo,
                             'Condition': patient.condition, 'Medicines': patient.medicines, 'Remarks': patient.remarks}
         df = pd.concat([df, pd.DataFrame(new_patient_data, index=[0])], ignore_index=True)
-        df.to_excel("H:\PythonAssignments\Project_HMS\DataBase\PatientRecord.xlsx", index=False)
+        df.to_excel(file_path, index=False)
 
     def view_directory(self):
         pd.options.display.width = 0  # Set the display width to 0 to display all columns in one line
-        df = pd.read_excel(r"H:\PythonAssignments\Project_HMS\DataBase\PatientRecord.xlsx")
+        df = pd.read_excel(file_path)
         df = df.set_index('ID')
         pd.set_option('display.max_columns', None)
         print(df)
 
     def search_patient(self, query):
         found = False
-        df = pd.read_excel("H:\PythonAssignments\Project_HMS\DataBase\PatientRecord.xlsx")
+        df = pd.read_excel(file_path)
         results = df[df['Patient Name'].str.contains(query, case=False)]
         if len(results) > 0:
             print(results.to_string(index=False))
@@ -63,7 +68,7 @@ class PatientList:
         return found
 
     def update_patient(self, query):
-        df = pd.read_excel("H:\PythonAssignments\Project_HMS\DataBase\PatientRecord.xlsx")
+        df = pd.read_excel(file_path)
         patient_row = df.loc[df['Patient Name'] == query]
         if len(patient_row) > 0:
             condition = input("Enter new condition: ")
@@ -72,5 +77,5 @@ class PatientList:
             df.loc[df['Patient Name'] == query, 'Condition'] = condition
             df.loc[df['Patient Name'] == query, 'Medicines'] = medicines
             df.loc[df['Patient Name'] == query, 'Remarks'] = remarks
-            df.to_excel("H:\PythonAssignments\Project_HMS\DataBase\PatientRecord.xlsx", index=False)
+            df.to_excel(file_path, index=False)
             print("Patient record updated")

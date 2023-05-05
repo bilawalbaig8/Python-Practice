@@ -10,7 +10,7 @@ while True:
     print("\n1. Add Patient")
     print("2. Search Patient")
     print("3. View all the Patient Directory")
-    print("3. Exit")
+    print("4. Exit")
 
     choice = int(input("\nEnter your choice: "))
 
